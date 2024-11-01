@@ -57,9 +57,11 @@ products.forEach((product) => {
 });
 
 
-
+//Appending all Product data to the body:
 document.querySelector('.js-products-grid').innerHTML = productHTML;
 
+
+//Updating cart quantity number:
 function updateCartQuantity() {
     let cartQuantity = 0;
     cart.forEach((cartItem) => {
