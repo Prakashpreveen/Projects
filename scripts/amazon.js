@@ -1,4 +1,4 @@
-import {cart} from '../javascript-amazon-project/data/cart.js';
+import {cart, addToCart} from '../javascript-amazon-project/data/cart.js';
 import {products} from '../javascript-amazon-project/data/products.js';
 //DATA STRUCTURE [SAVE THE DATA]:
 //GENERATE THE HTML:
@@ -57,35 +57,23 @@ products.forEach((product) => {
 });
 
 
+
 document.querySelector('.js-products-grid').innerHTML = productHTML;
+
+function updateCartQuantity() {
+    let cartQuantity = 0;
+    cart.forEach((cartItem) => {
+        cartQuantity += cartItem.quantity;
+    });
+
+    document.querySelector('.js-cart-quantity')
+        .innerHTML = cartQuantity;
+}
 
 document.querySelectorAll('.js-addtocart-btn').forEach((button) => {
     button.addEventListener('click',() => {
         const productId = button.dataset.productId; //kabab case to camel case
-
-        let matchingItem;
-
-        cart.forEach((item) => {
-            if (productId === item.productId) {
-                matchingItem = item;
-            }
-        });
-
-        if (matchingItem) {
-            matchingItem.quantity += 1;
-        } else {
-            cart.push({
-                productId : productId,
-                quantity : 1
-            });
-        }
-
-        let cartQuantity = 0;
-        cart.forEach((item) => {
-            cartQuantity += item.quantity;
-        });
-
-        document.querySelector('.js-cart-quantity')
-            .innerHTML = cartQuantity;
+        addToCart(productId);
+        updateCartQuantity();       
     });
 });
