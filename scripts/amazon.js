@@ -1,6 +1,5 @@
+import {cart} from '../javascript-amazon-project/data/cart.js';
 //DATA STRUCTURE [SAVE THE DATA]:
-
-
 //GENERATE THE HTML:
 
 let productHTML = '';
