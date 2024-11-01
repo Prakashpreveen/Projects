@@ -1,4 +1,5 @@
 import {cart} from '../javascript-amazon-project/data/cart.js';
+import {products} from '../javascript-amazon-project/data/products.js';
 //DATA STRUCTURE [SAVE THE DATA]:
 //GENERATE THE HTML:
 
